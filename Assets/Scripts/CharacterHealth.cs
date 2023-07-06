@@ -7,6 +7,8 @@ public class CharacterHealth : MonoBehaviour
     [SerializeField] int MaxHitPoints = 100;
     int currentHitPoints;
 
+    public int CurrentHitPoints { get { return currentHitPoints; } }
+
     private void Start()
     {
         currentHitPoints = MaxHitPoints;
