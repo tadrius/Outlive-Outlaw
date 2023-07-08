@@ -16,7 +16,7 @@ namespace StarterAssets
         public bool autoAttack;
         public bool zoom;
 		public float cycleEquipment;
-		public float selectEquipment;
+		public bool toggleFlashlight;
 
         [Header("Movement Settings")]
 		public bool analogMovement;
@@ -79,9 +79,9 @@ namespace StarterAssets
 			CycleEquipmentInput(value.Get<float>());
 		}
 
-        public void OnSelectEquipment(InputValue value)
+        public void OnToggleFlashlight(InputValue value)
         {
-            CycleEquipmentInput(value.Get<float>());
+            ToggleFlashlightInput(value.isPressed);
         }
 #endif
 
@@ -126,9 +126,9 @@ namespace StarterAssets
 			cycleEquipment = newCycleEquipmentValue;
 		}
 
-        public void SelectEquipmentInput(float newSelectEquipmentValue)
+        public void ToggleFlashlightInput(bool newToggleFlashlightInput)
         {
-            selectEquipment = newSelectEquipmentValue;
+            toggleFlashlight = newToggleFlashlightInput;
         }
 
         private void OnApplicationFocus(bool hasFocus)
