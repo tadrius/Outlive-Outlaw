@@ -14,6 +14,7 @@ namespace StarterAssets
 		public bool sprint;
 		public bool attack;
         public bool autoAttack;
+        public bool reload;
         public bool zoom;
 		public float cycleEquipment;
 		public bool toggleFlashlight;
@@ -66,6 +67,11 @@ namespace StarterAssets
             }
         }
 
+        public void OnReload(InputValue value)
+        {
+            ReloadInput(value.isPressed);
+        }
+
         public void OnZoom(InputValue value)
         {
             if (cursorInputForLook)
@@ -115,6 +121,11 @@ namespace StarterAssets
         {
             autoAttack = newAttackState;
         }
+
+		public void ReloadInput(bool newReloadState)
+		{
+			reload = newReloadState;
+		}
 
 		public void ZoomInput(bool newZoomState)
 		{
