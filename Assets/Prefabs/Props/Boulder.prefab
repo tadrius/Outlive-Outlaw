@@ -19,7 +19,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &5343563998839478044
 Transform:
@@ -8552,7 +8552,7 @@ MonoBehaviour:
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
-  m_SelectedVertices: 8b010000
+  m_SelectedVertices: 
 --- !u!114 &5268372270972278547
 MonoBehaviour:
   m_ObjectHideFlags: 0
