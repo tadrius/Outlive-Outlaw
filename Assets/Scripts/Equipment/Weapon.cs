@@ -39,7 +39,11 @@ public class Weapon : MonoBehaviour
     void Start()
     {
         loadedAmmoAmount = ammoCapacity;
-        state = WeaponState.Ready;
+    }
+
+    private void OnEnable()
+    {
+        state = WeaponState.Recovery;
     }
 
     void Update()
