@@ -8,7 +8,7 @@ public class KillZone : MonoBehaviour
     {
         Debug.Log("Entered kill zone.");
         CharacterHealth health = other.GetComponentInParent<CharacterHealth>();
-        if (health != null )
+        if (health != null)
         {
             health.TakeDamage(health.CurrentHitPoints);
         }

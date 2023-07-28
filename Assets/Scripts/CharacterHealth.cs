@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+using UnityEngine.WSA;
 
 public class CharacterHealth : MonoBehaviour
 {
@@ -9,7 +11,15 @@ public class CharacterHealth : MonoBehaviour
 
     int currentHitPoints;
 
+    DamageScreenDisplay[] damageDisplays;
+    int currentDamageDisplayIndex = 0;
+
     public int CurrentHitPoints { get { return currentHitPoints; } }
+
+    private void Awake()
+    {
+        damageDisplays = FindObjectsOfType<DamageScreenDisplay>();
+    }
 
     private void Start()
     {
@@ -33,8 +43,18 @@ public class CharacterHealth : MonoBehaviour
     public void TakeDamage(int amount)
     {
         AddHealth(-amount);
+        ShowDamageDisplay();
     }
 
+    void ShowDamageDisplay()
+    {
+        if (currentDamageDisplayIndex >= damageDisplays.Count())
+        {
+            currentDamageDisplayIndex = 0;
+        }
+        damageDisplays[currentDamageDisplayIndex].ShowDisplay();
+        currentDamageDisplayIndex++;
+    }
 
     public void Heal(int amount)
     {
@@ -48,14 +68,15 @@ public class CharacterHealth : MonoBehaviour
         if (currentHitPoints <= 0)
         {
             Die();
-        } else
-        {
-            Debug.Log($"Health: {currentHitPoints}");
         }
     }
     
-    private void Die()
+    public void Die()
     {
+        foreach (DamageScreenDisplay display in damageDisplays)
+        {
+            display.ShowDisplay();
+        }
         GetComponent<DeathHandler>().HandleDeath();
     }
 
