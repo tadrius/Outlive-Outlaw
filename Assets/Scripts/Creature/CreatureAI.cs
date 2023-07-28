@@ -90,7 +90,7 @@ public class CreatureAI : MonoBehaviour
     {
         animator.SetBool("Die", true);
         creatureCollider.enabled = false;
-        navMeshAgent.SetDestination(transform.position);
+        navMeshAgent.enabled = false;
         enabled = false;
     }
 

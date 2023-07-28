@@ -47,9 +47,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxIntensity: 15
-  maxInnerSpot: 17.5
+  maxInnerSpot: 2
   maxPower: 100
   powerDecayRate: 1
+  power: 0
+  powerDisplay: {fileID: 0}
 --- !u!108 &6600922389853534955
 Light:
   m_ObjectHideFlags: 0

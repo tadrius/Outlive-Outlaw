@@ -18952,8 +18952,8 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 1, g: 0.86408746, b: 0.7311321, a: 1}
-  m_Intensity: 0.05
-  m_Range: 3
+  m_Intensity: 0.5
+  m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -19060,7 +19060,7 @@ Transform:
   - {fileID: 1141285907216509747}
   - {fileID: 3519177363880967478}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8112757229777740225
 GameObject:
