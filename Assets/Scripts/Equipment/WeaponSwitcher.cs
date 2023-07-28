@@ -10,15 +10,18 @@ public class WeaponSwitcher : MonoBehaviour
 {
 
     [SerializeField] int currentWeaponIndex = 0;
+    [SerializeField] ResourceDisplay ammoDisplay;
 
     int previousWeaponIndex;
     StarterAssetsInputs inputs;
     List<Weapon> weapons;
+    AmmoStorage ammoStorage;
 
     private void Awake()
     {
         inputs = GetComponentInParent<StarterAssetsInputs>();
         weapons = GetComponentsInChildren<Weapon>(true).ToList();
+        ammoStorage = GetComponentInParent<AmmoStorage>();
 
         previousWeaponIndex = currentWeaponIndex;
     }
@@ -31,7 +34,21 @@ public class WeaponSwitcher : MonoBehaviour
 
     void Update()
     {
+        if (ammoDisplay != null)
+        {
+            UpdateAmmoDisplay();
+        }
         ProcessInput();
+    }
+
+    private void UpdateAmmoDisplay()
+    {
+        if (ammoDisplay != null)
+        {
+            ammoDisplay.resourceAmounts[0] = weapons[currentWeaponIndex].LoadedAmmoAmount;
+            ammoDisplay.resourceAmounts[1] = ammoStorage.GetAmmoAmount(weapons[currentWeaponIndex].AmmoType);
+            ammoDisplay.UpdateDisplay();
+        }
     }
 
     void ProcessInput()

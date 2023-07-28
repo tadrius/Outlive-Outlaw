@@ -16,6 +16,8 @@ public class FlashlightPower : MonoBehaviour
     [SerializeField] float powerDecayRate = 1.0f;
 
     [SerializeField] float power;
+    [SerializeField] ResourceDisplay powerDisplay;
+
     Light flashlight;
     StarterAssetsInputs input;
     bool isOn;
@@ -44,6 +46,7 @@ public class FlashlightPower : MonoBehaviour
 
     private void Update()
     {
+        UpdatePowerDisplay();
         ProcessInput();
         switch (isOn) {
             case true:
@@ -53,6 +56,15 @@ public class FlashlightPower : MonoBehaviour
             case false:
                 UpdateLightValues(0f);
                 break;
+        }
+    }
+
+    private void UpdatePowerDisplay()
+    {
+        if (powerDisplay != null)
+        {
+            powerDisplay.resourceAmounts[0] = Mathf.RoundToInt(power);
+            powerDisplay.UpdateDisplay();
         }
     }
 

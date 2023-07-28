@@ -5,6 +5,8 @@ using UnityEngine;
 public class CharacterHealth : MonoBehaviour
 {
     [SerializeField] int MaxHitPoints = 100;
+    [SerializeField] ResourceDisplay healthDisplay;
+
     int currentHitPoints;
 
     public int CurrentHitPoints { get { return currentHitPoints; } }
@@ -12,6 +14,20 @@ public class CharacterHealth : MonoBehaviour
     private void Start()
     {
         currentHitPoints = MaxHitPoints;
+    }
+
+    private void Update()
+    {
+        UpdateHealthDisplay();
+    }
+
+    private void UpdateHealthDisplay()
+    {
+        if (healthDisplay != null)
+        {
+            healthDisplay.resourceAmounts[0] = currentHitPoints;
+            healthDisplay.UpdateDisplay();
+        }
     }
 
     public void TakeDamage(int amount)

@@ -22,6 +22,9 @@ public class Weapon : MonoBehaviour
     int loadedAmmoAmount;
     WeaponState state;
 
+    public int LoadedAmmoAmount { get {  return loadedAmmoAmount; } }
+    public AmmoType AmmoType { get { return ammoType; } }
+
     public enum ActionType { Automatic, Manual }
 
     enum WeaponState { Ready, Recovery, Reload, Delay }

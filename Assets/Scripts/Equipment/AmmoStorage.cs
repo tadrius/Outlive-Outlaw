@@ -54,6 +54,11 @@ public class AmmoStorage : MonoBehaviour
         return amount;
     }
 
+    public int GetAmmoAmount(AmmoType type)
+    {
+        return ammoSlotByType[type].amount;
+    }
+
     [System.Serializable]
     class AmmoSlot
     {
