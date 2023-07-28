@@ -1,8 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
-using UnityEngine.WSA;
 
 public class CharacterHealth : MonoBehaviour
 {
@@ -48,7 +46,7 @@ public class CharacterHealth : MonoBehaviour
 
     void ShowDamageDisplay()
     {
-        if (currentDamageDisplayIndex >= damageDisplays.Count())
+        if (currentDamageDisplayIndex >= damageDisplays.Length)
         {
             currentDamageDisplayIndex = 0;
         }
